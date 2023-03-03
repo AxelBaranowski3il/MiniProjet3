@@ -41,6 +41,7 @@ public class GameControllerDiff {
 
    @FXML
     public void initialize() {
+       // création d'une liste pour y ajouter des cartes
        listCartes.addListener((ListChangeListener.Change<? extends Carte> change ) ->{
             while(change.next()){
                 if (listCartes.size() == 2 && (listCartes.get(0).getId() == listCartes.get(1).getId())){
@@ -58,6 +59,7 @@ public class GameControllerDiff {
             }
        });
 
+       // timer pour afficher une boite de dialogue
        int nb = 60;
        Timeline tm = new Timeline(new KeyFrame(Duration.seconds(1), ae -> timerAlert()));
        tm.setCycleCount(60);
@@ -72,6 +74,7 @@ public class GameControllerDiff {
        //Date dte = new Date(2023, 10, 6, 5, minute, seconde);
        //timer.textProperty().set(dte.format(DateTimeFormatter.ofPattern("mm:ss")));
 
+       // affiche la boite de dialogue
        timer.setText("00:" + seconde);
        seconde--;
        if (seconde <= 1){
@@ -88,6 +91,7 @@ public class GameControllerDiff {
 
     @FXML
     public void onClickButton(ActionEvent evt){
+        // ajoute la carte dans la liste
        if (listCartes.size() >= 2) {
            for (Carte carte : listCartes)
                listCartes.remove(0);

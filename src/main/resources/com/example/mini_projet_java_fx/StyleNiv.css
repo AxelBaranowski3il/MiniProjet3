@@ -2,3 +2,7 @@
     -fx-background-image: url('../../../../../IMAGE/setDeJeu.jpg');
     -fx-background-size: cover;
 }
+.button#carte1, .button#carte2, .button#carte3, .button#carte4, .button#carte5, .button#carte6, .button#carte7, .button#carte8 {
+    -fx-background-image: url('../../../../../IMAGE/carte.JPEG');
+    -fx-background-size: cover;
+}

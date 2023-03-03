@@ -29,6 +29,10 @@ public class HelloController {
 
     @FXML
     public void startGame(ActionEvent event) {
+
+        /**
+         * On recupere le choix du niveau
+         */
         String path= "";
         if (niveau.getValue() == "Facile"){
             path = "GameFacile.fxml";
@@ -36,6 +40,7 @@ public class HelloController {
             path = "GameDiff.fxml";
         }
         try {
+            // permet l'ouverture d'une autre fenetre
             Parent root;
             Stage rapport = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass()
@@ -46,6 +51,8 @@ public class HelloController {
             rapport.setScene(new Scene(root));
             rapport.setTitle("JEU");
             rapport.show();
+
+            // ferme la fenetre actuelle
             ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
 
         } catch (IOException e) {

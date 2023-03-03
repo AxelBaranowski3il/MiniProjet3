@@ -1,12 +1,21 @@
 package com.example.mini_projet_java_fx;
 
+import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 
 public class GameController {
@@ -18,8 +27,18 @@ public class GameController {
     @FXML
     Label labScore;
 
+    @FXML
+    Label timer;
+
     // Score si les deux cartes sont égales
     int score = 0;
+
+    // seconde du timer
+    int seconde = 60;
+
+    // minutes du timer
+    int minute = 0;
+
 
     // tableau de button
     Button[] tabBut = {new Button(), new Button()};
@@ -43,6 +62,33 @@ public class GameController {
 
             }
        });
+
+       int nb = 60;
+       Timeline tm = new Timeline(new KeyFrame(Duration.seconds(1), ae -> timerAlert()));
+       tm.setCycleCount(60);
+       nb--;
+       tm.play();
+       if (nb < 1)
+           tm.stop();
+   }
+
+   private void timerAlert(){
+
+       //Date dte = new Date(2023, 10, 6, 5, minute, seconde);
+       //timer.textProperty().set(dte.format(DateTimeFormatter.ofPattern("mm:ss")));
+
+       timer.setText("00:" + seconde);
+       seconde--;
+       if (seconde <= 1){
+           Alert alertTimer = new Alert(Alert.AlertType.INFORMATION);
+           alertTimer.setTitle("TEMPS ECOULE !");
+           alertTimer.setContentText("Vous n'avez pas fini le jeu dans le temps impartie. Recommencez !");
+           alertTimer.show();
+           reset();
+           System.out.println("TEMPS ECOULE !");
+
+       }
+
    }
 
     @FXML
@@ -64,5 +110,17 @@ public class GameController {
            }
        }
        score = 0;
+       seconde = 60;
+    }
+
+    private void reset(){
+        if (!listCartes.isEmpty()){
+            int taille = listCartes.size();
+            for(int i = 0; i < taille; i++) {
+                listCartes.remove(0);
+            }
+        }
+        score = 0;
+        seconde = 60;
     }
 }

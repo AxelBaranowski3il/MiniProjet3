@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mini_projet_java_fx.GameController">
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="562.0" style="-fx-background-image: ;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mini_projet_java_fx.GameController">
    <bottom>
       <Button fx:id="retry" mnemonicParsing="false" onAction="#retryButton" text="Retry" BorderPane.alignment="CENTER" />
    </bottom>
@@ -14,7 +14,7 @@
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Label contentDisplay="RIGHT" prefHeight="90.0" prefWidth="166.0" text="Niveau" />
-            <Label alignment="CENTER" prefHeight="70.0" prefWidth="222.0" text="Timer" />
+            <Label fx:id="timer" alignment="CENTER" prefHeight="70.0" prefWidth="222.0" text="Timer" />
             <Label fx:id="labScore" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="82.0" prefWidth="108.0" text="Score" />
          </children>
       </HBox>

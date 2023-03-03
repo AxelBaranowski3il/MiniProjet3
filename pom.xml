@@ -113,7 +113,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.mini_projet_java_fx/com.example.mini_projet_java_fx.HelloApplication
+                                com.example.mini_projet_java_fx/com.example.mini_projet_java_fx.MemoireMemoire
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

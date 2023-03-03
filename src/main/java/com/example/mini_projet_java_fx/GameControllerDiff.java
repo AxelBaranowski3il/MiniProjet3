@@ -1,6 +1,5 @@
 package com.example.mini_projet_java_fx;
 
-import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -11,14 +10,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
-
-public class GameController {
+public class GameControllerDiff {
     ObservableList<Carte> listCartes = FXCollections.observableArrayList();
 
     @FXML
@@ -110,7 +105,16 @@ public class GameController {
            }
        }
        score = 0;
+       labScore.setText("Score = " + score);
        seconde = 60;
+       carte1.setVisible(true);
+       carte2.setVisible(true);
+       carte3.setVisible(true);
+       carte4.setVisible(true);
+       carte5.setVisible(true);
+       carte6.setVisible(true);
+       carte7.setVisible(true);
+       carte8.setVisible(true);
     }
 
     private void reset(){
@@ -122,5 +126,13 @@ public class GameController {
         }
         score = 0;
         seconde = 60;
+        carte1.setVisible(true);
+        carte2.setVisible(true);
+        carte3.setVisible(true);
+        carte4.setVisible(true);
+        carte5.setVisible(true);
+        carte6.setVisible(true);
+        carte7.setVisible(true);
+        carte8.setVisible(true);
     }
 }
